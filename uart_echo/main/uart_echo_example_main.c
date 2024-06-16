@@ -40,6 +40,9 @@ static const char *TAG = "UART TEST";
 #define BUF_SIZE (1024)
 
 
+
+
+
 int sendData(const char* logName, const char* data)
 {
     const int len = strlen(data);
@@ -72,6 +75,12 @@ static void echo_task(void *arg)
 
     // Configure a temporary buffer for the incoming data
     uint8_t *data = (uint8_t *) malloc(BUF_SIZE);
+    
+    
+    
+	sendData(TAG, "Hello world");
+    
+    
 
     while (1) {
         // Read data from the UART
