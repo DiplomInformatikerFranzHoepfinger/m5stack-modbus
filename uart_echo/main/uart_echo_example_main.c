@@ -39,6 +39,15 @@ static const char *TAG = "UART TEST";
 
 #define BUF_SIZE (1024)
 
+
+int sendData(const char* logName, const char* data)
+{
+    const int len = strlen(data);
+    const int txBytes = uart_write_bytes(UART_NUM_1, data, len);
+    ESP_LOGI(logName, "Wrote %d bytes", txBytes);
+    return txBytes;
+}
+
 static void echo_task(void *arg)
 {
     /* Configure parameters of an UART driver,
