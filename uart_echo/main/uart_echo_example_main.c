@@ -47,7 +47,7 @@ static const char *TAG = "UART TEST";
 int sendData(const char* logName, const char* data)
 {
     const int len = strlen(data);
-    const int txBytes = uart_write_bytes(UART_NUM_1, data, len);
+    const int txBytes = uart_write_bytes(ECHO_UART_PORT_NUM, data, len);
     ESP_LOGI(logName, "Wrote %d bytes", txBytes);
     return txBytes;
 }
